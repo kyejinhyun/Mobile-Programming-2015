@@ -1,22 +1,26 @@
 package kr.ac.embedded.kookmin.sales;
 
-/**
- * Class for a simple sale of one item with no tax, discount, or other
- * adjustments. Class invariant: The price is always nonnegative; the name is a
- * nonempty string.
- */
+/** 
+  * Class for a simple sale of one item with no tax, discount, or other 
+  * adjustments. Class invariant: The price is always nonnegative; the name is a 
+  * nonempty string. 
+  */ 
+
+
 public class Sale {
-	private String	name;	// A nonempty string
-	private double	price;	// nonnegative
+	private String	name;
+	private double	price;	
 							
 	public Sale() {
 		name = "No name yet";
 		price = 0;
 	}
 	
-	/**
-	 * Precondition: theName is a nonempty string; thePrice is nonnegative.
-	 */
+	/** 
+	 	 * Precondition: theName is a nonempty string; thePrice is nonnegative. 
+	 	 */ 
+
+	
 	public Sale(String theName, double thePrice) {
 		setName(theName);
 		setPrice(thePrice);
@@ -24,10 +28,10 @@ public class Sale {
 	
 	public Sale(Sale originalObject) {
 		if (originalObject == null) {
-			System.out.println("Error: null Sale object.");
+			System.out.println("error: null sale object.");
 			System.exit(0);
 		}
-		// else
+		
 		name = originalObject.name;
 		price = originalObject.price;
 	}
@@ -40,14 +44,11 @@ public class Sale {
 		return price;
 	}
 	
-	/**
-	 * Precondition: newPrice is nonnegative.
-	 */
 	public void setPrice(double newPrice) {
 		if (newPrice >= 0)
 			price = newPrice;
 		else {
-			System.out.println("Error: Negative price.");
+			System.out.println("error: negative price.");
 			System.exit(0);
 		}
 	}
@@ -56,14 +57,11 @@ public class Sale {
 		return name;
 	}
 	
-	/**
-	 * Precondition: newName is a nonempty string.
-	 */
 	public void setName(String newName) {
 		if (newName != null && newName != "")
 			name = newName;
 		else {
-			System.out.println("Error: Improper name value.");
+			System.out.println("error: improper name valuee.");
 			System.exit(0);
 		}
 	}
@@ -76,11 +74,7 @@ public class Sale {
 		return price;
 	}
 	
-	/*
-	 * Returns true if the names are the same and the bill for the calling
-	 * object is equal to the bill for otherSale; otherwise returns false. Also
-	 * returns false if otherObject is null.
-	 */
+	
 	public boolean equalDeals(Sale otherSale) {
 		if (otherSale == null)
 			return false;
@@ -88,16 +82,13 @@ public class Sale {
 			return (name.equals(otherSale.name) && bill() == otherSale.bill());
 	}
 	
-	/*
-	 * Returns true if the bill for the calling object is less than the bill for
-	 * otherSale; otherwise returns false.
-	 */
+	
 	public boolean lessThan(Sale otherSale) {
 		if (otherSale == null) {
-			System.out.println("Error: null Sale object.");
+			System.out.println("error: null sale object.");
 			System.exit(0);
 		}
-		// else
+		
 		return (bill() < otherSale.bill());
 	}
 	
