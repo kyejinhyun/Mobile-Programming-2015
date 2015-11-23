@@ -11,6 +11,9 @@ public class AddLineNumber
 { 
     public static void main(String[] args) 
     { 
+    String path = AddLineNumber.class.getResource("").getPath();
+    System.out.println(path);
+    
        try 
        { 
           BufferedReader inputStream =  
